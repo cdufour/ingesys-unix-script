@@ -4,7 +4,7 @@
 
 ## Liens utiles
 - [Cheat Sheet for DevOps: .gitlab-ci.yml (GitLab)](https://medium.com/open-devops-academy/cheat-sheet-for-devops-gitlab-ci-yml-gitlab-2ffbf0c4f7ac)
-- [Create and Configure GitLab SSH Keys](https://youtu.be/5Ck07BJDXTE)
+- [Create and Configure GitLab SSH Keys - vidéo youtube (5min)](https://youtu.be/5Ck07BJDXTE)
 
 ## Slides
 - [DevOps](https://opusidea-training.s3.eu-west-3.amazonaws.com/presentation/ajc/DevOps.pdf)
