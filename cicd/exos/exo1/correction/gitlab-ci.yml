@@ -1,0 +1,29 @@
+stages:
+- phase1
+- phase2
+
+variables:
+  URL: https://w3schools.com/python/demopage.htm
+
+# image par défaut pour tous les jobs
+image: python:3.11-alpine
+
+job1:
+  stage: phase1
+  script:
+  - pip install requests # installation de la dépendance "requets"
+  - python src/script.py > index.html
+  - sed 's/Test/Demo/' index.html
+  artifacts:
+    paths:
+      - index.html
+
+job2:
+  stage: phase2
+  script:
+  - echo "URL => ${URL}" > output.txt
+  - wc -m index.html >> output.txt
+  artifacts:
+    paths:
+    - output.txt
+
