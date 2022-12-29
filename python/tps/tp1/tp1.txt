@@ -1,0 +1,13 @@
+*** TP 1 ***
+
+1. Réécrire en python, en le nommant "tp1-exo1.py", le script bash script.sh (Chiffre secret à deviner)
+Option: trouver le moyen de rendre aléatoire le chiffre à deviner.
+
+2. Ecrire un script python "tp1-exo2.py" prenant en argument de ligne de commande un entier
+et fournissant en sortie sa table de multiplication de 0 à 10.
+Exemple si la valeur fournie est 5:
+5 x 0 = 0
+5 x 1 = 5
+...
+5 x 10 = 50
+Le script refusera de la calculer la table d'une valeur non comprise entre 0 et 1000
