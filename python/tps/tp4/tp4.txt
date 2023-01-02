@@ -1,0 +1,20 @@
+*** TP 4 ***
+
+Nous disposons d'un fichier csv contenant la filmographie de Robert De Niro,
+avec les informations suivantes: Year, Score et Title.
+
+Sur la base de ce fichier, ou d'autres fichiers constitués de la même manière (filmographie d'autres acteurs), 
+nous souhaitons produire une page html par film en vue, par exemple, d'alimenter un site Internet.
+Cette page html sera basée sur le modèle fourni (template.html).
+
+Ecrire un script tp4.py définissant une classe PageMaker
+Tout objet issu de cette classe disposera d'une méthode generate_html
+
+L'invocation de cette méthode produira en sortie un fichier html par film (ligne du fichier csv).
+Les éléments placés entre crochets seront à remplacer dynamiquement par les données du fichier csv.
+
+Exemple d'utilisation de la classe et de l'objet:
+pm = PageMaker("deniro.csv") # chemin du fichier csv fourni à l'instanciation
+pm.generate_html("/tmp")  # enregistrement des fichiers html dans le dossier /tmp
+
+Le paramètre fourni à generate_html permet d'indiquer le dossier d'enregistrement des fichiers.

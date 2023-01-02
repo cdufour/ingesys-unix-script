@@ -13,8 +13,7 @@ class Crypt:
 
     def encrypt(self, file_path):
         base_name = os.path.basename(file_path).split(".")[0]
-        #print(base_name)
-        out_file = f"{base_name}.enc" # concaténation
+        out_file = f"files/{base_name}.enc" # concaténation
 
         with open(file_path, "rb") as f:
             data = f.read()
@@ -27,15 +26,28 @@ class Crypt:
         
         print(f"Fichier crypté: {out_file}\n")
 
-        
-        
+        # suppresion du fichier clair (attention)
+        os.remove(file_path)
 
-    def decrypt(self):
-        pass
+    def decrypt(self, file_path, out_ext="txt"):
+        base_name = os.path.basename(file_path).split(".")[0]
+        out_file = f"files/{base_name}.{out_ext}"
+
+        with open(file_path, "rb") as f:
+            data = f.read()
+
+        decrypted = self.fernet.decrypt(data)
+
+        with open(out_file, "wb") as f:
+            f.write(decrypted)
+
+        print(f"Fichier décrypté: {out_file}\n")
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-e", "--encrypt")
 parser.add_argument("-d", "--decrypt")
+parser.add_argument("-x", "--ext", default="txt")
 
 args = parser.parse_args()
 
@@ -46,6 +58,10 @@ if args.encrypt:
     crypt.encrypt(args.encrypt)
 elif args.decrypt:
     print("Fichier à décrypter:", args.decrypt)
+    if args.ext:
+        crypt.decrypt(args.decrypt, args.ext)
+    else:
+        crypt.decrypt(args.decrypt)
 
 
 
