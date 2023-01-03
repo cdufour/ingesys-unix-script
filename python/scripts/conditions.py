@@ -1,4 +1,4 @@
-isEarthRound = True # variable booléenne
+isEarthRound = True  # variable booléenne
 
 if isEarthRound:
     print("La terre est ronde")
