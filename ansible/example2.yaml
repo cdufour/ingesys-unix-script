@@ -1,0 +1,37 @@
+---
+- name: Exemple 2
+  hosts: slave1
+  gather_facts: no  # désactive l'étape de collecte des faits (infos concernant vos cibles)
+
+  tasks:
+  - name: File 1
+    file: path=/tmp/touched state=touch
+
+  - name: File 2
+    file:
+      path: /tmp/touched
+      state: file
+      mode: '777' # identique à "777"
+
+  - name: File 3
+    file:
+      path: /tmp/folder
+      state: directory
+      mode: '755'
+
+  - name: File 4
+    file:
+      state: link
+      src: /tmp/touched
+      path: /home/osboxes/link_to_touched
+
+  - name: File 5
+    file: state=absent path=/tmp/folder
+
+  - name: File 6
+    file: state=absent path=/tmp/touched
+
+  - name: File 7
+    file: state=absent path=/home/osboxes/link_to_touched
+      
+...

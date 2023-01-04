@@ -1,0 +1,16 @@
+1. donnez les commandes directes (ad-hoc) permettant de:
+a. créer le sous-dossier log dans le dossier /tmp 
+b. créer un fichier log1.txt dans /tmp/log
+c. mettre le fichier /tmp/log/log1.txt en mode 755
+d. écrire "coucou" dans le fichier /tmp/log/log1.txt
+e. supprimer le fichier /tmp/log/log1.txt
+f. supprimer le dossier /tmp/log
+n.b: pas de playbook ! Juste les commandes ansible
+
+2. playbook exo2.yaml
+écrire un playbook qui:
+- crée un dossier nommé private dans le home directory de osboxes
+- copie dans ce dossier un fichier "secret.txt"
+- remplace (voir module replace) la chaîne "[father]" par le hostname de la
+machine. Etat du fichier secret.txt après remplacement: Ton père est slave1.
+Cette tâche ne sera executée que sur le host slave1

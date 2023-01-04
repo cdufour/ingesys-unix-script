@@ -1,0 +1,15 @@
+---
+- name: Exemple 1
+  hosts: slave1
+
+  tasks:
+  - name: Copy 1
+    copy: src=files/hello.txt dest=/tmp/ciao.txt
+  
+  - name: Copy 2
+    copy: 
+      src: files/README.md
+      dest: /tmp/README.md
+      #mode: 0664
+      mode: u=rw,g=rw,o=r
+...
