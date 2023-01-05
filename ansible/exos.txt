@@ -7,6 +7,7 @@ e. supprimer le fichier /tmp/log/log1.txt
 f. supprimer le dossier /tmp/log
 n.b: pas de playbook ! Juste les commandes ansible
 
+
 2. playbook exo2.yaml
 écrire un playbook qui:
 - crée un dossier nommé private dans le home directory de osboxes
@@ -14,3 +15,17 @@ n.b: pas de playbook ! Juste les commandes ansible
 - remplace (voir module replace) la chaîne "[father]" par le hostname de la
 machine. Etat du fichier secret.txt après remplacement: Ton père est slave1.
 Cette tâche ne sera executée que sur le host slave1
+
+
+3. playbook exo3.yaml
+créer un playbook qui sur slave1:
+- installe les paquets nodejs et npm
+- git clone (voir module git) le dépôt suivant: https://gitlab.com/cdufour1/nodeapp.git dans /tmp/nodeapp
+- copie le fichier script.js dans le home directory d'osboxes
+facultatif:
+- execute le script (commande: node script.js)
+- affichage côté master le retour de l'exécution de cette commande
+
+
+4. créer un playbook exécutant le script files/system.sh sur slave1 et affichant les sorties
+côté master

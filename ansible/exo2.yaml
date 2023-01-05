@@ -1,0 +1,31 @@
+---
+- name: Exo 2
+  hosts: slave1
+  gather_facts: yes # on indique clairement que ces variables facts seront utiles
+
+  tasks:
+  - name: Tache 1 creation du repertoire
+    file:
+      state: directory
+      path: /home/osboxes/private
+  
+  - name: Copy secret.txt to private directory
+    copy:
+      src: files/secret.txt
+      dest: /home/osboxes/private/secret.txt
+
+  # - name: Replace
+  #   ansible.builtin.replace:
+  #     path: /home/osboxes/private/secret.txt
+  #     after: 'est'
+  #     regexp: '[^ ]+'
+  #     replace: 'slave1'
+
+  # autre version
+  - name: Replace in file
+    replace:
+      dest: private/secret.txt
+      regexp: '\[father\]'
+      replace: '{{ ansible_hostname }}'
+
+...

@@ -1,0 +1,22 @@
+---
+- name: Exemple 5
+  hosts: slave1
+  gather_facts: yes
+
+  tasks:
+
+  - command: pwd
+    register: out1
+  - debug: var=out1.stdout
+
+  - command: ls -l
+    register: out2
+  - debug: var=out2.stdout
+
+  - shell: ls -l | head -n 3
+    register: out3
+  - debug: var=out3.stdout
+
+
+
+...

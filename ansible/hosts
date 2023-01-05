@@ -1,5 +1,5 @@
-slave1 ansible_host=192.168.10.11 ansible_user=osboxes ansible_ssh_password=osboxes.org
-slave2 ansible_host=192.168.10.12 ansible_user=osboxes ansible_ssh_password=osboxes.org
+slave1 ansible_host=192.168.10.11 ansible_user=osboxes ansible_ssh_password=osboxes.org ansible_sudo_pass=osboxes.org
+slave2 ansible_host=192.168.10.12 ansible_user=osboxes ansible_ssh_password=osboxes.org ansible_sudo_pass=osboxes.org
 
 [slaves]
 slave1

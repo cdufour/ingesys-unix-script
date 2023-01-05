@@ -1,0 +1,66 @@
+---
+- name: Exemple 3
+  hosts: slave1
+  gather_facts: yes
+
+  vars:
+    user: Christophe
+    training: Ansible
+
+  tasks:
+
+  - debug:
+      msg: coucou {{ 2 + 2 }}
+
+  - debug:
+      msg: coucou {{ user }}, enseigne-moi {{ training }}
+
+  - debug:
+      msg: "{{ ansible_default_ipv4.interface }} => {{ ansible_default_ipv4.gateway }}"
+
+  - file:
+      path: /tmp/{{ user }}
+      state: directory
+
+  - file: path=/tmp/{{ user }} state=absent
+
+  - file:
+      path: /tmp/condition
+      state: touch
+    when: false # cette tâche ne sera pas exécutée
+
+  #- debug: msg={{ ansible_distribution }}
+
+  - file:
+      path: /tmp/formation-{{ training }}.txt
+      state: touch
+    #when: ansible_distribution == 'CentOS'
+    #when: ansible_distribution != 'CentOS'
+    when: ansible_distribution == 'Ubuntu'
+
+  - debug: msg=ok
+    when: ansible_distribution == 'Ubuntu' and user == 'Christophe'
+
+  - ping:
+    register: ping_output
+
+  - debug: 
+      var: ping_output
+
+  - debug:
+      msg: "{{ ping_output.ping }}" 
+
+  - file:
+      path: /tmp/pingpong
+      state: directory
+    when: ping_output.ping == 'pong'
+
+  
+
+
+
+
+
+
+
+...

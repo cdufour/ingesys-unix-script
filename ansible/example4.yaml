@@ -1,0 +1,24 @@
+---
+- name: Exemple 4
+  hosts: slave1
+  gather_facts: yes
+  
+  tasks:
+  # - file:
+  #     path: /tmp/rootfile
+  #     state: touch
+  #   become: yes
+  - name: Install apache
+    apt:
+      name: apache2
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == 'Ubuntu'
+    become: yes
+
+  - name: Start apache
+    service:
+      name: apache2
+      state: started
+    become: yes
+...

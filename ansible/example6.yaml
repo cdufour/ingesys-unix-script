@@ -1,0 +1,35 @@
+---
+- name: Exemple 6
+  hosts: slave1
+
+  vars:
+    repo: https://gitlab.com/cdufour1/calculator.git
+    clone_dir: /tmp/calculator
+
+  tasks:
+
+  - name: Install Git
+    apt:
+      name: git
+      state: present
+    become: yes
+
+  - name: clone {{ repo }}
+    git:
+      repo: "{{ repo }}"
+      dest: "{{ clone_dir }}"
+
+  - name: run unit tests
+    command:
+      chdir: "{{ clone_dir }}"
+      cmd: python3 testing/test_calc.py
+
+  - name: run app
+    command: 
+      chdir: "{{ clone_dir }}"
+      cmd: python3 calculator.py -o add -x 2 -y 3
+    register: cmd_out
+  
+  - debug: var=cmd_out.stdout
+
+...
