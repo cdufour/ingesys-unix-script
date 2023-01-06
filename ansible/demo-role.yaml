@@ -1,0 +1,8 @@
+---
+- name: Demo Role
+  hosts: slave1
+
+  roles:
+  - docker
+
+...

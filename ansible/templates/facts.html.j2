@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+
+    <body>
+        <h1>{{ title }}</h1>
+        <h2>Distribution: {{ ansible_distribution }}</h2>
+
+        {% if ansible_distribution == 'CentOS' %}
+            <p>Excellente distro !</p>
+        {% endif %}
+    </body>
+</html>

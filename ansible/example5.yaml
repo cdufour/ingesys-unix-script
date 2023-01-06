@@ -16,7 +16,4 @@
   - shell: ls -l | head -n 3
     register: out3
   - debug: var=out3.stdout
-
-
-
 ...

@@ -1,0 +1,4 @@
+---
+packages: [nodejs, npm, curl]
+files: [app.js, package.json]
+...

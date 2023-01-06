@@ -4,7 +4,7 @@
 
   vars:
     title: Formation Ansible
-    apache_dir: /var/www/html
+    apache_dir: /varrrrrrrrr/www/html
 
   tasks:
   - name: Stats for {{ apache_dir }}
@@ -12,13 +12,19 @@
       path: "{{ apache_dir }}"
     register: out
 
-  - debug: var=out
+  #- debug: var=out
 
-  - name: Update dir owner
+  - name: Update ownership on {{ apache_dir }}
     file:
       path: "{{ apache_dir }}"
       owner: "{{ ansible_user }}"
     become: yes
+    #when: out.stat.exists
+
+  - name: process and copy template file
+    template:
+      src: templates/facts.html.j2
+      dest: "{{ apache_dir }}/facts.html"
     when: out.stat.exists
 
 ...

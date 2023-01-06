@@ -1,0 +1,39 @@
+---
+
+# les tâches en handlers sont appelées par
+# notification (notify)
+# La notification se produit qu'à la suite d'un changement d'état
+# les handlers sont asynchrones (non bloquants)
+
+- name: Exemple 11
+  hosts: slave1
+  gather_facts: no
+
+  tasks:
+  - copy:
+      src: files/hello.txt
+      dest: /tmp/hello.txt
+    notify: write_log
+
+  - command: cat toto.log
+    register: out
+  - debug:
+
+  # - replace:
+  #     path: /netplan/config.yaml
+  #     after: xxxx
+  #     regex: 
+  #   notify: netplan_apply
+    
+
+  handlers:
+  - name: write_log
+    shell: echo toto >> toto.log
+    - name: write_log
+    shell: echo toto >> toto.log
+
+  # - name: netplan_apply
+  #   command: netplan apply
+  #   become: yes
+
+...

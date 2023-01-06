@@ -1,0 +1,6 @@
+---
+- name: Install {{ application }}
+  debug: msg="Install {{ application }}"
+- name: Start {{ application }} Engine
+  debug: msg="Start {{ application }} Engine"
+...

@@ -1,0 +1,26 @@
+---
+
+# exemples d'utilisation
+# ansible-playbook example10.yaml --tags hello
+# ansible-playbook example10.yaml -t hello,welcome
+# ansible-playbook example10.yaml --skip-tags welcome
+
+- name: Exemple 10
+  hosts: slave1
+  gather_facts: no
+
+  tasks:
+  - name: Hello
+    debug: msg=Hello
+    tags:
+    - hello
+  - name: Welcome
+    debug: msg=Welcome
+    tags:
+    - welcome
+    #- always
+  - name: Bye
+    debug: msg=Bye
+    tags:
+    - hello
+...

@@ -29,3 +29,22 @@ facultatif:
 
 4. créer un playbook exo4.yaml exécutant le script files/system.sh sur slave1 et affichant les sorties
 côté master
+
+5. ignorez
+
+6. rédiger un playbook exo6_clean.yaml détruisant toutes les ressources produites
+par l'exécution des playbook example6.yaml et example7.yaml
+
+7. playbook exo7.yaml
+rédiger un playbook qui
+- installe le paquet apache2
+- démarre le service apache2
+- crée un groupe dev
+- crée un utilisateur dev1 appartenant aux groupes dev + sudo, mot de passe: dev1
+- crée un sous-dossier dev1 dans le dossier /var/www/html
+- copie le template user.html.j2 dans le dossier /var/www/html/dev1. 
+    renommer le fichier user.html
+	définir dans le playbook une variable "prof" afin d'alimenter le template
+- crée un lien symbolique /home/osboxes/web_dev1 pointant vers /var/www/html/dev1
+- fait une requête http sur http://localhost/dev1/user.html par le module ansible.builtin.uri
+- affiche le retour de la requête (content), grâce au module debug, dans le terminal de la master
