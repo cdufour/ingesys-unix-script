@@ -1,0 +1,24 @@
+---
+- name: Exemple 9
+  hosts: slave1
+
+  vars:
+    title: Formation Ansible
+    apache_dir: /var/www/html
+
+  tasks:
+  - name: Stats for {{ apache_dir }}
+    stat:
+      path: "{{ apache_dir }}"
+    register: out
+
+  - debug: var=out
+
+  - name: Update dir owner
+    file:
+      path: "{{ apache_dir }}"
+      owner: "{{ ansible_user }}"
+    become: yes
+    when: out.stat.exists
+
+...

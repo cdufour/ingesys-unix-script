@@ -1,0 +1,15 @@
+---
+- name: Exo 4
+  hosts: slave1
+
+  tasks:
+  # - copy: src=files/system.sh dest=~ mode=u+x
+  # - shell: ./system.sh
+  #   register: out
+  # - debug: var=out
+
+  # alternative
+  - script: files/system.sh
+    register: out
+  - debug: var=out
+...

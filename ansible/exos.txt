@@ -27,5 +27,5 @@ facultatif:
 - affichage côté master le retour de l'exécution de cette commande
 
 
-4. créer un playbook exécutant le script files/system.sh sur slave1 et affichant les sorties
+4. créer un playbook exo4.yaml exécutant le script files/system.sh sur slave1 et affichant les sorties
 côté master

@@ -1,0 +1,26 @@
+---
+- name: Exemple 8
+  hosts: slave1
+
+  vars:
+    #url: https://www.leparisien.fr/resizer/08SIgDDrCI9RfvhlLZeNOlDl3hw=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/EIXGA26AZZBGZJ7GS2UJ7R7CE4.jpg
+    url: https://gitlab.com/cdufour1/nodeapp/-/raw/main/README.md
+    endpoint: https://jsonplaceholder.typicode.com/posts
+  
+  tasks:
+  - name: download file
+    get_url:
+      url: "{{ url }}"
+      dest: /tmp/README.md
+      mode: '744'
+
+  # exemple d'interaction avec une API REST (json)
+  - name:
+    uri:
+      url: "{{ endpoint }}"
+      method: GET
+    register: out
+
+  - debug: var=out.json[0].title
+
+...

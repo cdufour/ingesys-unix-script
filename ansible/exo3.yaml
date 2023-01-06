@@ -1,0 +1,35 @@
+---
+- name: Exo 3
+  hosts: slave2
+  gather_facts: yes
+  become: yes
+
+  vars:
+    repo: https://gitlab.com/cdufour1/nodeapp.git
+
+  tasks:
+  - name: install nodejs
+    apt:
+      name: nodejs
+      state: present
+      update_cache: yes
+    when: ansible_distribution == 'Ubuntu'
+
+  - name: git clone {{ repo }}
+    git:
+      repo: "{{ repo }}"
+      dest: /tmp/nodeapp
+
+  - name: copy script.js from /tmp/nodeapp to /home/{{ansible_user}}
+    copy:
+      remote_src: yes
+      src: /tmp/nodeapp/script.js
+      dest: /home/{{ansible_user}}
+
+  - name: execute script.js
+    shell: node script.js
+    register: out
+
+  - debug:
+      msg: "{{ out.stdout }}"
+...
