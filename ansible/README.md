@@ -21,10 +21,10 @@ sudo apt install -y sshpass
 ```
 
 ### Liens utiles
-- [Presentation - slides](https://opusidea-training.s3.eu-west-3.amazonaws.com/presentation/ansible.pdf)
-- [Slides "Ad hoc" (faits en direct)](https://opusidea-training.s3.eu-west-3.amazonaws.com/presentation/2022-11-14--17-adhoc-slides.pdf)
+- [Presentation - slides](https://opusidea-training.s3.eu-west-3.amazonaws.com/presentation/ajc/ansible.pdf)
 - [Playbook facts](https://docs.ansible.com/ansible/latest/user_guide/playbooks_vars_facts.html)
 - [ANSIBLE Cheat Sheet](https://gist.github.com/andreicristianpetcu/b892338de279af9dac067891579cad7d)
+- [Ansible builtin collection](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)
 - [Using filters to manipulate data](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html)
 - [How to Include Variables in Ansible + Examples](https://www.toptechskills.com/ansible-tutorials-courses/ansible-include-import-variables-tutorial-examples/)
 - [How to Use Ansible to Install and Set Up Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-20-04)	

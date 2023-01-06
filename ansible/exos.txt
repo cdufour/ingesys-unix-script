@@ -36,7 +36,7 @@ côté master
 par l'exécution des playbook example6.yaml et example7.yaml
 
 7. playbook exo7.yaml
-rédiger un playbook qui
+rédiger un playbook qui, sur slave1:
 - installe le paquet apache2
 - démarre le service apache2
 - crée un groupe dev
