@@ -1,0 +1,14 @@
+1. donnez les commandes docker permettant de:
+    a. démarrer un conteneur apache (nommé "a1") en arrière-plan avec redirection de port 8000 vers 80
+    b. démarrer un conteneur apache (nommé "a2") en arrière-plan avec redirection de port 8001 vers 80
+    c. obtenir les logs du conteneur a2
+    d. suivre en temps réel les logs du conteneur a1
+    e. arrêter a1 et a2
+    f. supprimer a1 et a2
+    g. supprimer l'image ayant servi de base aux conteneurs a1 et a2
+    h. (re)télécharger l'image ayant servi de base aux conteneurs a1 et a2
+
+2.
+Créer un script shell (exo1_start.sh) produisant 2 conteneurs redis dans deux versions différentes 
+ainsi que 2 conteneurs mysql dans deux versions différentes (attention, variable d'environnement obligatoire MYSQL_ROOT_PASSWORD, -e)
+Créer le script arrêtant et supprimant ces conteneurs (exo1_destroy.sh)
