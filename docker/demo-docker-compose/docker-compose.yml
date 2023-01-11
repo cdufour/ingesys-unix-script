@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  r1:
+    image: redis:5-alpine
+  r2:
+    image: redis:6-alpine

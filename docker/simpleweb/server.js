@@ -39,6 +39,7 @@ app.get('/visit', (req, res) => {
 })
 
 app.get('/crash', (req, res) => {
+  console.log("ça va crasher !");
   process.exit(1); // fin du processus nodejs
   res.send('adieu !');
 })

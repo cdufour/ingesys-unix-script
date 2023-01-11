@@ -25,3 +25,13 @@ Vérifier que les commandes curl, zip et ps sont bien embarquées dans le conten
 Donner les commandes permettant de:
     a. construire l'image avec le tag "tp1-exo2:1.0.0"
     b. démarrer un conteneur nommé "exo2" basé sur cette image
+
+
+5. 
+Récupérer les sources situées dans le dossier exos-correction/exo5
+Ecrire le Dockerfile permettant de conteneuriser l'application python/flask
+Ecrire le fichier docker-compose.yml permettant de déployer localement un service flask et un service mariadb
+Faire un build de l'image et la pousser sur le docker hub.
+
+Notes:
+- la commande "pip install -r requirements.txt" permet d'installer les dépendances listées dans le fichier requirements.txt

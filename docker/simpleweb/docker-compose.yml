@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  web:
+    build: .
+    image: simpleweb:1.0.0
+    ports:
+    - 3000:3000
+    volumes:
+    - ./public:/app/public
+    depends_on:
+    - redis
+    restart: on-failure
+
+  redis:
+    image: redis:6-alpine

@@ -1,0 +1,9 @@
+docker run 34
+docker run -it 34
+docker run 34 python3
+docker run 34 pwd
+docker run 34 python3 tp1-exo2.py 6
+docker run --rm 34 python3 tp1-exo2.py 6
+docker run --rm 34 python3 tp1-exo2.py 5000
+
+docker run --rm -e NUMBER= 34 python3 tp1-exo2.py

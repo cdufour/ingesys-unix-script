@@ -1,0 +1,7 @@
+FROM python
+
+WORKDIR /app
+
+COPY tp1-exo2.py .
+
+RUN python tp1-exo2.py 5
