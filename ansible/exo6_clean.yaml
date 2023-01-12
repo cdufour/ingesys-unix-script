@@ -1,0 +1,37 @@
+---
+- name: Exo 6
+  hosts: slave1
+
+  vars:
+    clone_dir: /tmp/calculator
+    group: musketeers
+    members: [athos, porthos, aramis]
+
+  tasks:
+  # --- clean example6.yaml ---
+  - name: uninstall Git
+    apt:
+      name: git
+      state: absent
+    become: yes
+
+  - name: delete {{ clone_dir }}
+    file:
+      path: "{{ clone_dir }}"
+      state: absent
+
+  # --- clean example7.yaml ---
+  - name: delete users
+    user:
+      state: absent
+      name: "{{ item }}"
+    loop: "{{ members }}"
+    become: yes
+
+  - name: delete group {{ group }}
+    group:
+      name: "{{ group }}"
+      state: absent
+    become: yes
+
+...

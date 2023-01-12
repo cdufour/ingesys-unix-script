@@ -30,7 +30,7 @@ facultatif:
 4. créer un playbook exo4.yaml exécutant le script files/system.sh sur slave1 et affichant les sorties
 côté master
 
-5. ignorez
+5. ignorer
 
 6. rédiger un playbook exo6_clean.yaml détruisant toutes les ressources produites
 par l'exécution des playbook example6.yaml et example7.yaml

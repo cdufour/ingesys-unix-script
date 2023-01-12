@@ -1,0 +1,51 @@
+---
+- name: Exo 7
+  hosts: slave1
+  gather_facts: yes
+  become: yes
+
+  vars:
+    prof: Christophe Dufour
+    gp: dev
+    user: dev1
+    apache_dir: /var/www/html
+
+  tasks:
+
+  - name: create group {{ gp }}
+    group:
+      state: present
+      name: "{{ gp }}"
+
+  - name: create user {{ user }}
+    user:
+      name: "{{ user }}"
+      groups: dev, sudo
+      password: "{{ user | password_hash('sha512') }}"
+      shell: /bin/bash
+
+  - name: create folder {{ user }} in {{ apache_dir }}
+    file:
+      state: directory
+      path: "{{ apache_dir }}/{{user }}"
+
+  - name: copy template to {{ apache_dir }}/{{user }}/user.html
+    template:
+      src: templates/user.html.j2
+      dest: "{{ apache_dir }}/{{user }}/user.html"
+
+  - name: create symlink
+    file:
+      state: link
+      src: "{{ apache_dir }}/{{user }}"
+      path: /home/osboxes/web_dev1
+
+  - name: make http request
+    uri:
+      url: http://localhost/dev1/user.html
+      return_content: yes
+    register: out
+
+  - debug:
+      msg: "{{ out.content }}"
+...

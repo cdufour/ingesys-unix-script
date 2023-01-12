@@ -10,7 +10,6 @@
     - { name: porthos, pwd: def_456 }
     - { name: aramis, pwd: ghi_789 }
 
-
   tasks:
   # - debug: msg="coucou {{ item }}"
   #   loop: [1,2,3]
@@ -35,7 +34,5 @@
       password: "{{ item.pwd | password_hash('sha512') }}"
     loop: "{{ members }}"
     become: yes
-
-
 
 ...
