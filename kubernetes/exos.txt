@@ -10,4 +10,4 @@
     i. lister les services
     j. supprimer le service et le deployment
 
-2. Rédiger et appliquer un manifeste permettant de deployer un server mysql version 5.7
+2. Rédiger et appliquer un manifeste permettant de deployer un pod mysql (version 5.7) en cluster.
