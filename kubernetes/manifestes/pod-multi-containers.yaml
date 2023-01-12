@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: multi-containers
+
+spec:
+  containers:
+  - name: redis
+    image: redis:6-alpine
+  - name: apache
+    image: httpd:2.4-alpine
