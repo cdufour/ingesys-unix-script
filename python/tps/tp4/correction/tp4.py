@@ -6,7 +6,7 @@ class PageMaker:
 
   def __init__(self, file_path):
     header = True
-    with open('../deniro.csv', 'r') as f:
+    with open(file_path, 'r') as f:
       rows = csv.reader(f, delimiter=',')
       for r in rows:
         if not header:
@@ -19,7 +19,7 @@ class PageMaker:
           header = False
 
   def load_template(self, file_path):
-    with open(file_path) as f:
+    with open(file_path, "r") as f:
       self.template = f.read()
  
   def generate_html(self, ouput_dir_path):
