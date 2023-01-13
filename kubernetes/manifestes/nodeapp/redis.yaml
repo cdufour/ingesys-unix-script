@@ -1,0 +1,25 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  containers:
+  - name: redis
+    image: redis:6-alpine
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis # utilisé en résolution DNS
+spec:
+  type: ClusterIP # connectivité interne seulement (type par défaut)
+  selector:
+    app: redis
+  ports:
+  - port: 6379
+    targetPort: 6379
+
+...
