@@ -1,0 +1,17 @@
+---
+#-----------------------------------
+# Par défault, un Pod est censé exécuter une charge de travail de façon continue
+# Par défault, la "restart policy" d'un pod est "always"
+#-----------------------------------
+kind: Pod
+apiVersion: v1
+metadata:
+  name: hello
+
+spec:
+  containers:
+  - name: hello
+    image: hello-world
+    # par défault, imagePullPolcicy vaut Always, l'image est retéléchargée systématiquement
+    imagePullPolicy: IfNotPresent # image téléchargée si non déjà présente sur le noeud de positionnement
+  restartPolicy: Always # valeur par défault

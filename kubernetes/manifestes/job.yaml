@@ -1,0 +1,15 @@
+---
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: hello2
+
+spec:
+  # pod template
+  template:
+    spec:
+      containers:
+      - name: hello
+        image: hello-world
+      restartPolicy: Never
+  backoffLimit: 4 # spécifie le nombre de fois où le pod redemarré avant de considérée comme en échec

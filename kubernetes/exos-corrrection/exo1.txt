@@ -1,0 +1,30 @@
+1. Donner les commandes kubectl permettant de:
+    a. démarrer un pod redis basé sur l'image redis:6-alpine
+    kubectl run redis --image=redis:6-alpine
+    
+    b. obtenir les logs de ce pod
+    kubectl logs po/redis
+
+    c. exécuter un client redis sur ce pod
+    kubectl exec -it po/redis -c redis -- redis-cli
+
+    d. supprimer ce pod
+    kubectl delete pod/redis
+    
+    e. créer un deployment de 2 replicas basé sur l'image httpd:2.4-alpine
+    kubectl create deployment apache --image=httpd:2.4-alpine -r=2
+
+    f. lister les pods
+    kubectl get po
+    
+    g. décrire l'un des pods (replicas)
+    kubectl describe po/apache-5c4c65cb57-hf25x
+
+    h. exposer le deployment depuis l'extérieur du cluster
+    kubectl expose deployment/apache --type=NodePort --port=80
+
+    i. lister les services
+    kubectl get svc
+    
+    j. supprimer le service et le deployment
+    kubectl delete svc/apache deploy/apache
