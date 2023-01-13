@@ -10,4 +10,9 @@
     i. lister les services
     j. supprimer le service et le deployment
 
+
 2. Rédiger et appliquer un manifeste permettant de deployer un pod mysql (version 5.7) en cluster.
+
+
+3. Déployer en cluster Kubernetes (minikube ou autre) l'application python/mysql
+de l'exercice 5 fait durant la formation Docker.
