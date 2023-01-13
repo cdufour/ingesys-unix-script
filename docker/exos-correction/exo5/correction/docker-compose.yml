@@ -1,0 +1,20 @@
+---
+version: '3.9'
+services:
+
+  flask:
+    build: .
+    environment:
+      DB_HOST: mariadb
+      SAVE_DB: 'True'
+    depends_on:
+      - mariadb
+    ports:
+      - 5001:5000
+    restart: always
+
+  mariadb:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: azerty
+      MYSQL_DATABASE: projet1
