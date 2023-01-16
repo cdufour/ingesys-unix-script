@@ -1,0 +1,19 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: db-config
+  namespace: exo3
+
+data:
+  toto: tutu
+  domain: prod
+  script.sql: |
+    CREATE DATABASE IF NOT EXISTS projet1;
+
+    CREATE TABLE projet1.hashes (
+        clearTxt varchar(255),
+        hashTxt varchar(255),
+        hashFn varchar(255)
+    );
+
+  

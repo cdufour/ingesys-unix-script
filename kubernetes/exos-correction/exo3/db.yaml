@@ -1,0 +1,77 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: db
+  namespace: exo3
+  labels:
+    app: db
+
+spec:
+  containers:
+  - name: mysql
+    image: mysql:5.7
+    env:
+    # - name: MYSQL_ROOT_PASSWORD
+    #   value: azerty
+
+    - name: MYSQL_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: db-password
+          key: db-password
+
+    - name: MYSQL_DATABASE
+      value: projet1
+    
+    - name: TOTO
+      valueFrom:
+        configMapKeyRef:
+          name: db-config
+          key: toto
+
+    volumeMounts:
+    - name: db-secrets # volume name
+      mountPath: /tmp/secrets
+    - name: db-script
+      mountPath: /tmp/scripts
+    - name: db-pv
+      mountPath: /var/lib/mysql
+
+
+  volumes:
+
+  # Two projected volume. 
+  # secret => volume
+  # configMap => voluem
+  - name: db-secrets
+    secret: 
+      secretName: db-password
+  - name: db-script
+    configMap:
+      name: db-config
+
+  # persistentVolume
+  - name: db-pv
+    persistentVolumeClaim:
+      claimName: db-pvc
+
+
+
+
+  
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: db # dns
+  namespace: exo3
+spec:
+  type: ClusterIP
+  selector:
+    app: db
+  ports:
+  - port: 3306
+    targetPort: 3306
+...

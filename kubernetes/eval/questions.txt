@@ -1,0 +1,28 @@
+1	Donnez le nom de trois solutions permettant d'administrer des applications multi-conteneurs.
+
+
+2	Les 3 grands fournisseurs Cloud (aws, azure, gcp) proposent-ils tous une offre Kubernetes ?	
+
+
+3	Un pod doit-il nécessairement être contrôlé par un ReplicaSet ?
+
+
+4	Quelle commande impérative permet de lister - en obtenant des informations détaillées - les pods situées dans un namespace nommé "dev" ?
+
+
+5	La commande "kubectl rollout undo" dispose-t-elle d'un flag lui permettant de revenir à une révision autre que la précédente ?	
+
+
+6	Quelle est la condition sine qua non (indispensable) pour que deux conteneurs apache soient exécutés dans le même pod sans conflit ?	
+
+
+7	A quoi sert un ReplicaSet ?	
+
+
+8	Un Service de type NodePort peut-il permettre à deux pods de communiquer en interne au cluster ?	
+
+
+9	Citez 3 ressources (objets) k8s qui ne sont pas de type "workload"	
+
+
+10	La destruction d'un service entraîne-t-elle la destruction des pods associés ?

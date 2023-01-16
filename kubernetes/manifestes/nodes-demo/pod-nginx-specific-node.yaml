@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  nodeName: <node-name> # exemple: ip-172-31-38-101.ec2.internal
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent

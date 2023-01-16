@@ -1,0 +1,54 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: flask
+  namespace: exo3
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+         app: flask
+    spec:
+      containers:
+      - name: flask
+        image: smoualouks/projet1:1.0.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: SAVE_DB
+          value: "True"
+        - name: DB_HOST
+          value: db
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_USER
+          value: root
+        # - name: DB_PASS
+        #   value: azerty
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: db-password
+        - name: DB_NAME
+          value: projet1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: flask
+  namespace: exo3
+spec:
+  type: NodePort
+  selector:
+    app: flask
+  ports:
+  - port: 5000
+    targetPort: 5000
+    nodePort: 31240
+...

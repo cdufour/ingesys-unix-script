@@ -1,0 +1,4 @@
+A. Répondre aux questions du fichier questions.txt
+
+B. Ecrire un court commentaire (entre 10 et 20 lignes) au sujet des fichiers yaml situés dans 
+le dossier wordpress. Expliquez ce qu'est censé produire l'application de ces manifestes.
