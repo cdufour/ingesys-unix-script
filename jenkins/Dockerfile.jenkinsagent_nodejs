@@ -1,0 +1,7 @@
+# jenkins/agent + nodejs
+# image à utiliser en tant que docker agent template
+# d'un noeud temporaire (cloud) dans Jenkins
+FROM jenkins/agent:alpine-jdk11
+USER root
+RUN apk add nodejs
+USER jenkins

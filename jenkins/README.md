@@ -1,7 +1,7 @@
 # Module Jenkins
 
 ## Installation
-### Construction de l'image docker de Jenkins incliant le plugin BlueOcean
+### Construction de l'image docker de Jenkins incluant le plugin BlueOcean
 ```
 docker build -t myjenkins-blueocean:2.332.3-1 .
 ```
@@ -50,7 +50,8 @@ https://www.jenkins.io/doc/book/installing/docker/
 ### Conteneur alpine/socat pour rediriger le trafic de jenkins vers un autre conteneur
 https://stackoverflow.com/questions/47709208/how-to-find-docker-host-uri-to-be-used-in-jenkins-docker-plugin
 ```
-docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+docker run --name docker -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/run/docker.sock:/var/run/docker.sock alpine/socat tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
+
 docker inspect <container_id> | grep IPAddress
 ```
 
@@ -58,3 +59,7 @@ docker inspect <container_id> | grep IPAddress
 ```
 docker pull devopsjourney1/myjenkinsagents:python
 ```
+
+## Tutos
+- [Learn Jenkins! Complete Jenkins Course - Zero to Hero - youtube - EN](https://youtu.be/6YZvp2GwT0A)
+- [Jenkins Tutorials - youtube playlist - EN](https://youtube.com/playlist?list=PLvBBnHmZuNQJeznYL2F-MpZYBUeLIXYEe)

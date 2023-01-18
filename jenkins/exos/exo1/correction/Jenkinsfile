@@ -1,0 +1,73 @@
+pipeline {
+    agent {
+        node {
+            label 'docker-agent-nodejs'
+        }
+    }
+    
+    environment {
+        SURGE_LOGIN         = credentials('SURGE_LOGIN')
+        SURGE_TOKEN         = credentials('SURGE_TOKEN')
+        STAGING_DOMAIN      = "luminess-chris-demo-react-staging.surge.sh"
+        PRODUCTION_DOMAIN   = "luminess-chris-demo-react-production.surge.sh"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://gitlab.com/cdufour1/demo-react.git'
+                sh '''
+                npm install
+                npm run build
+                '''
+            }
+        }
+        stage('Test') {
+            parallel {
+                stage('Test Artifact') {
+                    steps {
+                        sh '''
+                        grep -q "React" ./build/index.html
+                        '''
+                    }
+    
+                }
+                stage('Test Website') {
+                    steps {
+                        sh '''
+                        npm run start &
+                        sleep 30
+                        curl -Is localhost:3000 | head -n 1 | grep "OK"
+                        '''
+                    }
+                }
+            }
+        }
+        stage('Deploy Staging') {
+            steps {
+                sh '''
+                echo "SURGE_LOGIN => $SURGE_LOGIN"
+                npm install surge
+                node_modules/.bin/surge --project ./build --domain ${STAGING_DOMAIN}
+                '''
+            }
+        }
+        stage('Deploy Production') {
+            steps {
+                sh '''
+                echo "SURGE_LOGIN => $SURGE_LOGIN"
+                npm install surge
+                node_modules/.bin/surge --project ./build --domain ${PRODUCTION_DOMAIN}
+                '''
+            }
+        }
+        stage('Production Tests') {
+            steps {
+                sh '''
+                curl -Is https://$PRODUCTION_DOMAIN | head -n 1 | grep "OK"
+                curl -s https://$PRODUCTION_DOMAIN | grep "React"
+                '''
+            }
+        }
+    }
+}

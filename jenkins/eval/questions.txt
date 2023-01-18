@@ -1,0 +1,20 @@
+1. Indiquez quelques différences et quelques similitudes entre Gitlab-ci et Jenkins
+
+2. Jenkins est-il uniquement compétent en matière d'intégration continue ?
+
+3. Est-il possible d'Utiliser Jenkins selon une architecture distribuée (master/slaves) ? 
+Si oui, faut-il installer un agent sur les noeuds slaves ou bien Jenkins est-il "agentless" ?
+
+4. Dans Jenkins, pourquoi créer un élément de type "freestyle project" plutôt que de type "pipeline" ?
+
+5. Dans Jenkins, qu'est-ce qu'un "build" ?
+
+6. Quel langage utilise-t-on pour écrire des pipeline Jenkins ?
+
+7. En Jenkins, quel est l'équivalent du fichier .gitlab-ci.yml ?
+
+8. Le déclenchement d'un "build" Jenkins est-il nécessairement manuel ?
+
+9. Où retrouve-t-on les éventuels dossiers/fichiers créées lors d'un "build" Jenkins ?
+
+10. Jenkins est-il un serveur ? Si oui, quel port tcp écoute-t-il par défaut ?
